@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6963e52a-e9e0-40e0-b1ae-2ec9aca9eab8" name="Changes" comment="ADD Error state if don't have currency">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="4e92f887-8459-4f48-82e4-1cb484ade7cb" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2AzIpNGKJuLv6QVTqy2Z0AGkTLQ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/yuriikasko/Desktop/projects/crypto_widgets&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/Images" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.serve">
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="serve" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="serve" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.serve" />
+        <item itemvalue="npm.build" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6963e52a-e9e0-40e0-b1ae-2ec9aca9eab8" name="Changes" comment="" />
+      <created>1656006168113</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1656006168113</updated>
+      <workItem from="1656006169952" duration="716000" />
+      <workItem from="1656007081521" duration="3364000" />
+      <workItem from="1656051874252" duration="8000" />
+      <workItem from="1656160499057" duration="9270000" />
+      <workItem from="1656192059006" duration="1099000" />
+      <workItem from="1656236149110" duration="671000" />
+      <workItem from="1656255913672" duration="1269000" />
+      <workItem from="1656311068601" duration="262000" />
+      <workItem from="1656423582380" duration="4863000" />
+      <workItem from="1656486051276" duration="67000" />
+      <workItem from="1656609344910" duration="6462000" />
+      <workItem from="1656657931444" duration="77000" />
+      <workItem from="1657838049109" duration="755000" />
+      <workItem from="1657867419430" duration="388000" />
+      <workItem from="1657976956759" duration="12900000" />
+      <workItem from="1658128767639" duration="17000" />
+      <workItem from="1658757730832" duration="10948000" />
+      <workItem from="1658834293270" duration="620000" />
+    </task>
+    <task id="LOCAL-00001" summary="sss">
+      <created>1656185415893</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1656185415893</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Init">
+      <created>1656185947002</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1656185947002</updated>
+    </task>
+    <task id="LOCAL-00003" summary="remove app css">
+      <created>1656186372744</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1656186372744</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added ticker autocomplete">
+      <created>1656189127049</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1656189127049</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Error init">
+      <created>1656189696372</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1656189696372</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Err #2">
+      <created>1656193156803</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1656193156803</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added errors">
+      <created>1656271019365</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1656271019365</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Ticker to local storage">
+      <created>1656424214600</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1656424214600</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Pagination">
+      <created>1656430020559</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1656430020559</updated>
+    </task>
+    <task id="LOCAL-00010" summary="FIx">
+      <created>1656611665883</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1656611665883</updated>
+    </task>
+    <task id="LOCAL-00011" summary="#17">
+      <created>1656616739850</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1656616739850</updated>
+    </task>
+    <task id="LOCAL-00012" summary="#17">
+      <created>1656617095047</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1656617095047</updated>
+    </task>
+    <task id="LOCAL-00013" summary="#18 api fc">
+      <created>1657985888818</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1657985888818</updated>
+    </task>
+    <task id="LOCAL-00014" summary="#18 add WS fix&#10;fix">
+      <created>1658005204616</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1658005204616</updated>
+    </task>
+    <task id="LOCAL-00015" summary="ADD Error state if don't have currency">
+      <created>1658769587004</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1658769587004</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <MESSAGE value="sss" />
+    <MESSAGE value="Init" />
+    <MESSAGE value="remove app css" />
+    <MESSAGE value="Added ticker autocomplete" />
+    <MESSAGE value="Error init" />
+    <MESSAGE value="Err #2" />
+    <MESSAGE value="Added errors" />
+    <MESSAGE value="Ticker to local storage" />
+    <MESSAGE value="Pagination" />
+    <MESSAGE value="FIx" />
+    <MESSAGE value="#17" />
+    <MESSAGE value="#18 api fc" />
+    <MESSAGE value="#18 add WS" />
+    <MESSAGE value="#18 add WS fix&#10;fix" />
+    <MESSAGE value="ADD Error state if don't have currency" />
+    <option name="LAST_COMMIT_MESSAGE" value="ADD Error state if don't have currency" />
+  </component>
+</project>
