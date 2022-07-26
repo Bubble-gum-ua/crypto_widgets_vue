@@ -7,21 +7,40 @@ const socket = new WebSocket(
 )
 const AGGREGATE_INDEX = "5"
 const STATUS_MESSAGE = "INVALID_SUB"
+
 socket.addEventListener('message', e => {
     const {TYPE: type, FROMSYMBOL: currency, PRICE: newPrice,PARAMETER: parameter, MESSAGE: newStatus} = JSON.parse(e.data)
     const item = parameter?.split('~')[2]
+    const curr = parameter?.split('~')[3]
+    console.log('currency',currency)
+    console.log('newPrice',newPrice)
+    //let crossCurrency = false
     if(newStatus === STATUS_MESSAGE) {
         const msgHandler = tickersHandlers.get(item) ?? []
         msgHandler.forEach(fn => fn('-','error'))
+        console.log(e)
+        console.log(curr)
+        if(curr !== 'BTC'){
+            calculateCrossCurrency(item)
+                // crossCurrency = true
+            return;
+        }
         return;
     } else if(type !== AGGREGATE_INDEX || newPrice === undefined){
         return
     }
+    console.log(e)
     const handlers = tickersHandlers.get(currency) ?? []
-    handlers.forEach(fn => fn(newPrice))
+    handlers.forEach(fn => fn(newPrice,'-'))
 })
-//TODO Refactor url search params
 
+//TODO Refactor url search params
+function calculateCrossCurrency(ticker){
+    console.log(tickersHandlers)
+   subscribeToTickerOnWsAndBTC(ticker)
+    subscribeToBTCToUSD()
+    console.log(ticker)
+}
 function sendToWebsocket(message){
     const stringifiedMessage = JSON.stringify(message)
     if(socket.readyState === WebSocket.OPEN) {
@@ -38,6 +57,18 @@ function subscribeToTickerOnWs(ticker){
         subs: [`5~CCCAGG~${ticker}~USD`]
     })
 }
+function subscribeToTickerOnWsAndBTC(ticker){
+    sendToWebsocket({
+        "action": "SubAdd",
+        subs: [`5~CCCAGG~${ticker}~BTC`]
+    })
+}
+function subscribeToBTCToUSD(){
+    sendToWebsocket({
+        "action": "SubAdd",
+        subs: [`5~CCCAGG~BTC~USD`]
+    })
+}
 function unSubscribeFromTickerOnWs(ticker){
     sendToWebsocket({
         "action": "SubRemove",
@@ -47,6 +78,7 @@ function unSubscribeFromTickerOnWs(ticker){
 export const subscribeToTicker = (ticker, cb) =>{
     const subscribers = tickersHandlers.get(ticker) || []
     tickersHandlers.set(ticker,[...subscribers, cb])
+    console.log(cb)
     subscribeToTickerOnWs(ticker)
 }
 export const unsubscribeToTicker = (ticker) => {
