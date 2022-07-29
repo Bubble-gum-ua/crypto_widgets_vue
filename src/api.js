@@ -8,76 +8,100 @@ const socket = new WebSocket(
 const AGGREGATE_INDEX = "5"
 const STATUS_MESSAGE = "INVALID_SUB"
 
+let BTCPrice = 0
+let coinsToCalculate = []
 socket.addEventListener('message', e => {
-    const {TYPE: type, FROMSYMBOL: currency, PRICE: newPrice,PARAMETER: parameter, MESSAGE: newStatus} = JSON.parse(e.data)
+    const {
+        TYPE: type,
+        FROMSYMBOL: currency,
+        PRICE: newPrice,
+        PARAMETER: parameter,
+        MESSAGE: newStatus,
+        TOSYMBOL: toSymbol
+    } = JSON.parse(e.data)
     const item = parameter?.split('~')[2]
     const curr = parameter?.split('~')[3]
-    console.log('currency',currency)
-    console.log('newPrice',newPrice)
-    //let crossCurrency = false
-    if(newStatus === STATUS_MESSAGE) {
+
+    if (newStatus === STATUS_MESSAGE) {
         const msgHandler = tickersHandlers.get(item) ?? []
-        msgHandler.forEach(fn => fn('-','error'))
-        console.log(e)
-        console.log(curr)
-        if(curr !== 'BTC'){
+        msgHandler.forEach(fn => fn('-', 'error'))
+        if (curr !== 'BTC') {
             calculateCrossCurrency(item)
-                // crossCurrency = true
             return;
         }
         return;
-    } else if(type !== AGGREGATE_INDEX || newPrice === undefined){
+    } else if (type !== AGGREGATE_INDEX || newPrice === undefined) {
         return
     }
-    console.log(e)
+    if (currency === 'BTC') {
+        coinsToCalculate.forEach(e => {
+            const handlers = tickersHandlers.get(e.currency) ?? []
+            let currencyCalculated = newPrice * e.newPrice
+            handlers.forEach(fn => fn(currencyCalculated, '-'))
+        })
+        BTCPrice = newPrice ? newPrice : BTCPrice
+    }
     const handlers = tickersHandlers.get(currency) ?? []
-    handlers.forEach(fn => fn(newPrice,'-'))
+    if (toSymbol === 'BTC') {
+        coinsToCalculate.push({currency: currency, newPrice: newPrice})
+        let currencyCalculated = newPrice * BTCPrice
+        handlers.forEach(fn => fn(currencyCalculated, '-'))
+
+    } else {
+        handlers.forEach(fn => fn(newPrice, '-'))
+    }
 })
 
 //TODO Refactor url search params
-function calculateCrossCurrency(ticker){
-    console.log(tickersHandlers)
-   subscribeToTickerOnWsAndBTC(ticker)
-    subscribeToBTCToUSD()
-    console.log(ticker)
-}
-function sendToWebsocket(message){
-    const stringifiedMessage = JSON.stringify(message)
-    if(socket.readyState === WebSocket.OPEN) {
-        socket.send(stringifiedMessage)
-        return``
+function calculateCrossCurrency(ticker) {
+    if (BTCPrice === 0) {
+        subscribeToBTCToUSD()
     }
-    socket.addEventListener('open', ()=>{
+    subscribeToTickerOnWsAndBTC(ticker)
+}
+
+function sendToWebsocket(message) {
+    const stringifiedMessage = JSON.stringify(message)
+    if (socket.readyState === WebSocket.OPEN) {
+        socket.send(stringifiedMessage)
+        return ``
+    }
+    socket.addEventListener('open', () => {
         socket.send(stringifiedMessage)
     }, {once: true})
 }
-function subscribeToTickerOnWs(ticker){
+
+function subscribeToTickerOnWs(ticker) {
     sendToWebsocket({
         "action": "SubAdd",
         subs: [`5~CCCAGG~${ticker}~USD`]
     })
 }
-function subscribeToTickerOnWsAndBTC(ticker){
+
+function subscribeToTickerOnWsAndBTC(ticker) {
     sendToWebsocket({
         "action": "SubAdd",
         subs: [`5~CCCAGG~${ticker}~BTC`]
     })
 }
-function subscribeToBTCToUSD(){
+
+function subscribeToBTCToUSD() {
     sendToWebsocket({
         "action": "SubAdd",
         subs: [`5~CCCAGG~BTC~USD`]
     })
 }
-function unSubscribeFromTickerOnWs(ticker){
+
+function unSubscribeFromTickerOnWs(ticker) {
     sendToWebsocket({
         "action": "SubRemove",
         subs: [`5~CCCAGG~${ticker}~USD`]
     })
 }
-export const subscribeToTicker = (ticker, cb) =>{
+
+export const subscribeToTicker = (ticker, cb) => {
     const subscribers = tickersHandlers.get(ticker) || []
-    tickersHandlers.set(ticker,[...subscribers, cb])
+    tickersHandlers.set(ticker, [...subscribers, cb])
     console.log(cb)
     subscribeToTickerOnWs(ticker)
 }
