@@ -209,11 +209,12 @@ export default {
     const tickerData = localStorage.getItem('cryptonomicon-list')
     if(tickerData){
       this.tickers = JSON.parse(tickerData)
-      this.tickers.forEach( ticker => {
-        subscribeToTicker(ticker.name,(newPrice,newStatus) =>
-            this.updateTicker(ticker.name,newPrice,newStatus)
-        )
-      })
+      this.connectToWorker()
+      // this.tickers.forEach( ticker => {
+      //   subscribeToTicker(ticker.name,(newPrice,newStatus) =>
+      //       this.updateTicker(ticker.name,newPrice,newStatus)
+      //   )
+      // })
     }
     setInterval(this.updateTickers,5000)
 
@@ -281,6 +282,19 @@ export default {
 
   },
   methods: {
+    connectToWorker(){
+      console.log('as')
+      console.log(this.tickers)
+      let worker = new SharedWorker('test.js');
+      worker.port.addEventListener("message", e => {
+        console.log(e.data);
+      }, false);
+      worker.port.start();
+      worker.port.postMessage("start");
+      this.tickers.forEach( ticker => {
+        worker.port.postMessage([ticker.name,ticker.price,ticker.status])
+      })
+    },
     updateTicker(tickerName, price, status){
       this.tickers.filter(t => t.name === tickerName).forEach(t => {
         if(t === this.selectedTicker){
